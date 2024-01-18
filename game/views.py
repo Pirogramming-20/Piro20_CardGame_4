@@ -42,13 +42,36 @@ def ranking(request):
     if len(user_list) >= 3:
         user_list = user_list[:3]
     return render(request, 'game/game_ranking.html', {'user_list': user_list})
+
+def checkWinner(game):
+    if game.rule == True: #Bigger card win
+        if game.attacker_card > game.defender_card:
+            game.attacker.score += game.attacker_card
+            game.defender.score -= game.defender_card
+            return 1 # Attacker win (0 = Defender win, 2 = Same)
+        elif game.attacker_card < game.defender_card:
+            game.attacker.score -= game.attacker_card
+            game.defender.score += game.defender_card
+            return 0
+    else: # Smaller card win
+        if game.attacker_card > game.defender_card:
+            game.attacker.score -= game.attacker_card
+            game.defender.score += game.defender_card
+            return 0
+        elif game.attacker_card < game.defender_card:
+            game.attacker.score += game.attacker_card
+            game.defender.score -= game.defender_card
+            return 1
+    return 2     
+        
 def counter(request, pk):
     game = get_object_or_404(Game, id=pk)
-
     if request.method == 'POST':
         form = CounterForm(request.POST, instance=game)
         if form.is_valid():
             form.save()
+            result = checkWinner(game)
+            return redirect('game:detail', {'game': game})            
     else:
         form = CounterForm(instance=game)
 
