@@ -1,9 +1,8 @@
 from django.urls import path, include
-from .views import *
+from .views import create
 
 app_name = 'game'
 
 urlpatterns = [
-    path('main/', main, name='main'),
-    path('game_create/', game_create, name='game_create'),
+    path('create/', create, name='create')
 ]
