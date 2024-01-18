@@ -54,21 +54,21 @@ def ranking(request):
 def checkWinner(game):
     if game.rule == True: #Bigger card win
         if game.attacker_card > game.defender_card:
-            game.attacker.score += game.attacker_card
-            game.defender.score -= game.defender_card
+            game.attacker.user_score += game.attacker_card
+            game.defender.user_score -= game.defender_card
             return 1 # Attacker win (0 = Defender win, 2 = Same)
         elif game.attacker_card < game.defender_card:
-            game.attacker.score -= game.attacker_card
-            game.defender.score += game.defender_card
+            game.attacker.user_score -= game.attacker_card
+            game.defender.user_score += game.defender_card
             return 0
     else: # Smaller card win
         if game.attacker_card > game.defender_card:
-            game.attacker.score -= game.attacker_card
-            game.defender.score += game.defender_card
+            game.attacker.user_score -= game.attacker_card
+            game.defender.user_score += game.defender_card
             return 0
         elif game.attacker_card < game.defender_card:
-            game.attacker.score += game.attacker_card
-            game.defender.score -= game.defender_card
+            game.attacker.user_score += game.attacker_card
+            game.defender.user_score -= game.defender_card
             return 1
     return 2     
         
@@ -79,7 +79,7 @@ def counter(request, pk):
         if form.is_valid():
             form.save()
             result = checkWinner(game)
-            return redirect('game:detail', {'game': game})            
+            return render(request, 'game/game_result.html', {'game': game})            
     else:
         form = CounterForm(instance=game)
 
