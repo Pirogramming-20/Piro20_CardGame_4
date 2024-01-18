@@ -6,7 +6,7 @@ class AttackForm(forms.ModelForm):
         model=Game
         fields=["attacker_card", "defender"]
 
-class DefendForm(forms.ModelForm):
+class CounterForm(forms.ModelForm):
     class Meta:
         model=Game
-        fields=["defender_card"]
+        fields=['defender_card']
