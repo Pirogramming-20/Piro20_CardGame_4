@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <form action="{% url 'game:counter' pk%}" method='POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type='submit'>반격하기</button>
+    </form>
+</section>
+{% endblock %}

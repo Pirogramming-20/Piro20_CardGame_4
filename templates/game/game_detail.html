@@ -1,3 +1,28 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-<p>{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<section>
+    <div class="detail_container">
+        <div class="detail_modal">
+            <p>{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
+            {% if game.rule == 0 %}
+            <p>숫자가 큰 사람이 이깁니다.</p>
+            {% else %}
+            <p>숫자가 작은 사람이 이깁니다.</p>
+            {% endif %}
+            <div>
+                <p>{{game.attacker}} : {{game.attacker_card}}</p>
+                <p>{{game.defender}} : {{game.defender_card}}</p>
+            </div>
+            {% if game.attacker_card > game.defender_card %}
+            <p>결과 : 공격자 승리</p>
+            {% elif game.attacker_card < game.defender_card %}
+            <p>결과 : 수비자 승리</p>
+            {% elif game.attacker_card == game.defender_card %}
+            <p>결과 : 무승부</p>
+            {% endif %}
+            <p>점수 : </p>
+        </div>
+    </div>
+</section>
 {% endblock content %}
