@@ -1,22 +1,21 @@
 import random
-from django.shortcuts import render, redirect
-from .forms import GameForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import AttackForm, DefendForm
 from .models import Game
-
+from common.models import User
 # Create your views here.
-def create(request):
+def attack(request):
     if request.method == 'POST':
-        form = GameForm(request.POST)
+        form = AttackForm(request.POST)
         if form.is_valid():
             game = form.save(commit=False)
-            print(game.defender)
             if(game.defender != None and game.defender != request.user):
                 game.attacker = request.user
                 game.rule = random.randint(0, 1)
                 game.save()
                 return redirect('/') # 추후 detail 이동으로 수정
     else:
-        form = GameForm()
+        form = AttackForm()
     return render(request, 'game/game_create.html', {'form': form})
 
 def game_list(request):
@@ -29,9 +28,15 @@ def game_list(request):
 def detail(request, pk):
     # post = Post.objects.get(id=pk)
     # user = post.user
-    game = Game.objects.get(id=pk)
+    game = get_object_or_404(Game, pk=pk)
     attacker = game.attacker
     defender = game.defender
 
     ctx ={'game':game, 'attacker': attacker, 'defender':defender}
     return render(request, 'game/game_detail.html', ctx)
+
+def ranking(request):
+    user_list = User.objects.order_by('-user_score')
+    if len(user_list) >= 3:
+        user_list = user_list[:3]
+    return render(request, 'game/game_ranking.html', {'user_list': user_list})
