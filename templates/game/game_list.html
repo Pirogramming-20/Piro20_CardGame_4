@@ -1,9 +1,21 @@
-{% extends 'base.html' %} {% load static %} {%block content%}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <!-- 게임 목록 -->
 {% for game in games %}
-
 <div>
-  <p>{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
+  <p>{{ game.id }} - {{ game.attacker }} VS {{ game.defender }}</p>
+  {% if game.rule == 1 %} {% if game.attacker_card > game.defender_card %}
+  <p>결과: 승리</p>
+  {% elif game.attacker_card < game.defender_card %}
+  <p>결과: 패배</p>
+  {% else %}
+  <p>결과: 무승부</p>
+  {% endif %} {% else %} {% if game.attacker_card > game.defender_card %}
+  <p>결과: 패배</p>
+  {% elif game.attacker_card < game.defender_card %}
+  <p>결과: 승리</p>
+  {% else %}
+  <p>결과: 무승부</p>
+  {% endif %} {% endif %}
   <a href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
 </div>
-{% endfor %} {%endblock%}
+{% endfor %} {% endblock %}

@@ -2,6 +2,7 @@ import random
 from django.shortcuts import render, redirect
 from .forms import GameForm
 from .models import Game
+from django.db.models import Q
 
 # Create your views here.
 def create(request):
@@ -20,11 +21,11 @@ def create(request):
     return render(request, 'game/game_create.html', {'form': form})
 
 def game_list(request):
-    #Game 객체 전부 가져오기
-    games = Game.objects.all()
+    # 현재 로그인한 사용자의 게임 객체 가져오기
+    user_games = Game.objects.filter(Q(attacker=request.user) | Q(defender=request.user))
 
-    ctx = {'games':games}
-    return render(request, 'game/game_list.html', ctx)  
+    ctx = {'games': user_games}
+    return render(request, 'game/game_list.html', ctx)
 
 def detail(request, pk):
     # post = Post.objects.get(id=pk)
