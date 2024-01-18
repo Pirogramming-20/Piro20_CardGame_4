@@ -71,8 +71,13 @@ def counter(request, pk):
         if form.is_valid():
             form.save()
             result = checkWinner(game)
-            return redirect('game:detail', {'game': game})            
+            return redirect('game:detail', {'game': game})
     else:
         form = CounterForm(instance=game)
 
     return render(request, 'game/game_counter.html', {'form': form, 'pk': pk})
+
+def game_delete(request, pk):
+    if request.method == 'POST':
+        Game.objects.get(id=pk).delete()
+    return redirect('game:game_list')
