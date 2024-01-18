@@ -8,5 +8,6 @@ urlpatterns = [
     path('attack/', attack, name='attack'),
     path('counter/<int:pk>', counter, name='counter'),
     path('detail/<int:pk>/', detail, name='detail'),
-    path('ranking/', ranking, name='ranking')
+    path('ranking/', ranking, name='ranking'),
+    path('detail_ing/<int:pk>', detail_ing, name='detail_ing'),
 ]

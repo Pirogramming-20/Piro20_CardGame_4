@@ -32,11 +32,12 @@
         {% else %}
           {% if game.attacker.username == request.user.username %}
           <p id="history_list_result">진행 중...<a class="history_list_prev" href="#">게임취소</a></p>
+          <a class="history_list_detail" href="{% url 'game:detail_ing' game.pk %}"> 게임전적 </a>
           {% else %}
           <a class="history_list_detail" href="{% url 'game:counter' game.pk %}">반격하기</a>
+          <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
           {% endif %}
         {% endif %}
-        <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
       </li>
       {% endfor %}
     </ul>

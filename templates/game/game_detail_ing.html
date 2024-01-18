@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <div class="detail_container">
+    <div class="detail_modal">
+      <p>{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
+      <p>진행중...</p>
+      <div>
+        <p>나: {{game.attacker}} : {{game.attacker_card}}</p>
+      </div>
+      <a class="history_list_prev" href="{% url 'game:game_list'%}">게임취소</a>
+    </div>
+  </div>
+</section>
+{% endblock content %}
