@@ -1,0 +1,5 @@
+{% block content %}
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>올리기</button>
+{% endblock %}
