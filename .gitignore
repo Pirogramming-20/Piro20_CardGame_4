@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/django,python,windows,visualstudio,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python,windows,visualstudio,macos
+=======
+# Created by https://www.toptal.com/developers/gitignore/api/django
+# Edit at https://www.toptal.com/developers/gitignore?templates=django
+
+.Ds_Store
+>>>>>>> 26fb212c1a9b85ffe54e552d4506b60b5b9960c1
 
 ### Django ###
 *.log
