@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <section>
-    <form method='POST'>
+    <form action="{% url 'game:create' %}" method='POST'>
         {% csrf_token %}
         {{form.as_p}}
         <button type='submit'>공격하기</button>

@@ -2,8 +2,19 @@
 <!-- 게임 목록 -->
 {% for game in games %}
 
-<div>
-  <p>{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
-  <a href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
+<div id="game_history_list">
+  <div id="history_list_container">
+    <div id="history_list_text">
+      fdsfffffffff
+    </div>
+    <p id="history_list_user">현재 플레이어 : {{request.user.username}}</p>
+    <ul>
+      <li>
+        <p id="history_list_content">{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
+        <p id="history_list_result">결과 : </p>
+        <a id="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
+      </li>
+    </ul>
+  </div>
 </div>
 {% endfor %} {%endblock%}

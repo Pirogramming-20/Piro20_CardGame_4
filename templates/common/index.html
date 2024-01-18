@@ -11,9 +11,9 @@
         <span class="main_username">{{request.user.username}}님이 로그인 중</span>
         {% endif %}
         <div class="btns">
-            <button class="btn_game"><a href="#">게임하기</a></button>
+            <button class="btn_game"><a href="{% url 'game:create' %}">게임하기</a></button>
             {% if user.is_authenticated %}
-            <button class="btn_history"><a href="#">전적보기</a></button>
+            <button class="btn_history"><a href="{% url 'game:game_list' %}">전적보기</a></button>
             {% endif %}
         </div>
     </div>
