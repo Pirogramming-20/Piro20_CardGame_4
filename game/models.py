@@ -3,7 +3,7 @@ from common.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
-class Market(models.Model):
+class Game(models.Model):
     rule = models.BooleanField()
     attacker_card = models.PositiveIntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
     defender_card = models.PositiveIntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
