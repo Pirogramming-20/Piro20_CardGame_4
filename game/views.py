@@ -42,6 +42,7 @@ def ranking(request):
     if len(user_list) >= 3:
         user_list = user_list[:3]
     return render(request, 'game/game_ranking.html', {'user_list': user_list})
+
 def counter(request, pk):
     game = get_object_or_404(Game, id=pk)
 
