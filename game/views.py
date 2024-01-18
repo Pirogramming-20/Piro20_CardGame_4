@@ -37,6 +37,14 @@ def detail(request, pk):
     ctx ={'game':game, 'attacker': attacker, 'defender':defender}
     return render(request, 'game/game_detail.html', ctx)
 
+def detail_ing(request,pk):
+    game = get_object_or_404(Game, pk=pk)
+    attacker = game.attacker
+    defender = game.defender
+
+    ctx ={'game':game, 'attacker': attacker, 'defender':defender}
+    return render(request, 'game/game_detail_ing.html', ctx)
+
 def ranking(request):
     user_list = User.objects.order_by('-user_score')
     if len(user_list) >= 3:
