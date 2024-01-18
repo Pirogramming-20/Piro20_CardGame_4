@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% load static %} {%block content%}
+<!-- 게임 목록 -->
+{% for game in games %}
+
+<div>
+  <p>{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
+  <a href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
+</div>
+{% endfor %} {%endblock%}
