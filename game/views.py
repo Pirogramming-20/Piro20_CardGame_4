@@ -1,4 +1,5 @@
 import random
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from .forms import GameForm
 from .models import Game
@@ -20,8 +21,9 @@ def create(request):
     return render(request, 'game/game_create.html', {'form': form})
 
 def game_list(request):
+    user = request.user
     #Game 객체 전부 가져오기
-    games = Game.objects.all()
+    games = Game.objects.filter(Q(attacker=user) | Q(defender=user))
 
     ctx = {'games':games}
     return render(request, 'game/game_list.html', ctx)  

@@ -46,7 +46,15 @@
     color: aliceblue;
 }
 
-#history_list_detail{
+.history_list_prev{
+    color: rgb(54, 174, 54);
+    padding: 10px 20px;
+    border: 1px solid  rgb(54, 174, 54);
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.history_list_detail{
     color: rgb(54, 174, 54);
     padding: 10px 20px;
     border: 1px solid  rgb(54, 174, 54);

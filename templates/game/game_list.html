@@ -11,8 +11,22 @@
     <ul>
       <li>
         <p id="history_list_content">{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
-        <p id="history_list_result">결과 : </p>
-        <a id="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
+        {% if game.defender_card != null and game.attacker_card != null %}
+          {% if game.attacker_card > game.defender_card %}
+          <p id="history_list_result">결과 : 공격자 승리</p>
+          {% elif game.attacker_card < game.defender_card %}
+          <p id="history_list_result">결과 : 수비자 승리</p>
+          {% elif game.attacker_card == game.defender_card %}
+          <p id="history_list_result">결과 : 무승부</p>
+          {% endif %}
+        {% else %}
+          {% if game.attacker.username == request.user.username %}
+          <p id="history_list_result">진행 중...<a class="history_list_prev" href="#">게임취소</a></p>
+          {% else %}
+          <a class="history_list_detail" href="#">반격하기</a>
+          {% endif %}
+        {% endif %}
+        <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
       </li>
     </ul>
   </div>
