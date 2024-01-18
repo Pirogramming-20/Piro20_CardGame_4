@@ -1,0 +1,48 @@
+section{
+    height: 82vh;
+    background-color: #1E201F;
+}
+
+.main_container{
+    display: flex;
+    flex-direction: column;
+    height: 82vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.main_title > p{
+    color: aliceblue;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.main_username{
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.btns{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btns > button{
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(54, 174, 54);
+    padding: 5px 20px;
+    background-color: transparent;
+    border: 3px solid rgb(54, 174, 54);
+    border-radius: 5px;
+}
+

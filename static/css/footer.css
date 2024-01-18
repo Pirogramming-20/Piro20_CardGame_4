@@ -1,0 +1,12 @@
+footer{
+    height: 10vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+footer > span{
+    color: aliceblue;
+    margin-bottom: 15px;
+}
