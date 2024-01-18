@@ -79,7 +79,7 @@ def counter(request, pk):
         if form.is_valid():
             form.save()
             result = checkWinner(game)
-            return render(request, 'game/game_result.html', {'game': game})            
+            return render(request, 'game/game_detail.html', {'game': game})            
     else:
         form = CounterForm(instance=game)
 

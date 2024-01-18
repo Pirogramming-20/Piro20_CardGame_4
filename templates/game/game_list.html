@@ -12,34 +12,37 @@
       <li>
         <p id="history_list_content">{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
         {% if game.defender_card != null and game.attacker_card != null %}
-        {% if game.rule == 0 %}
-        {% if game.attacker_card > game.defender_card %}
-        <p>결과 : 수비자 승리</p>
-        {% elif game.attacker_card < game.defender_card %}
-        <p>결과 : 공격자 승리</p>
-        {% elif game.attacker_card == game.defender_card %}
-        <p>결과 : 무승부</p>
-        {% endif %}
-    {% else %}
-        {% if game.attacker_card > game.defender_card %}
-        <p>결과 : 공격자 승리</p>
-        {% elif game.attacker_card < game.defender_card %}
-        <p>결과 : 수비자 승리</p>
-        {% elif game.attacker_card == game.defender_card %}
-        <p>결과 : 무승부</p>
-        {% endif %}
-    {% endif %}
+            {% if game.rule == 0 %}
+                {% if game.attacker_card > game.defender_card %}
+                <p>결과 : 수비자 승리</p>
+                {% elif game.attacker_card < game.defender_card %}
+                <p>결과 : 공격자 승리</p>
+                {% elif game.attacker_card == game.defender_card %}
+                <p>결과 : 무승부</p>
+                {% endif %}
+                <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
+            {% else %}
+                {% if game.attacker_card > game.defender_card %}
+                <p>결과 : 공격자 승리</p>
+                {% elif game.attacker_card < game.defender_card %}
+                <p>결과 : 수비자 승리</p>
+                {% elif game.attacker_card == game.defender_card %}
+                <p>결과 : 무승부</p>
+                {% endif %}
+                <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
+            {% endif %}
         {% else %}
-          {% if game.attacker.username == request.user.username %}
-          <form action="{% url 'game:game_delete' game.pk %}" method="post">
-            {% csrf_token %}
-            <p id="history_list_result">진행 중...<button>게임취소</button></p>
-          </form>
-          {% else %}
-          <a class="history_list_detail" href="{% url 'game:counter' game.pk %}">반격하기</a>
-          <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
-          {% endif %}
-        {% endif %}
+            {% if game.attacker.username == request.user.username %}
+                <form action="{% url 'game:game_delete' game.pk %}" method="post">
+                {% csrf_token %}
+                <p id="history_list_result">진행 중...<button>게임취소</button></p>
+                </form>
+                <a class="history_list_detail" href="{% url 'game:detail_ing' game.pk %}"> 게임전적 </a>
+            {% else %}
+                <a class="history_list_detail" href="{% url 'game:counter' game.pk %}">반격하기</a>
+                <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
+            {% endif %}
+        {% endif%}
       </li>
       {% endfor %}
     </ul>
