@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    text-decoration-line: none;
+    color: aliceblue;
+}
+
+#logo a{
+    font-size: larger;
+    color: rgb(54, 174, 54);
+}
+
+nav{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    justify-content: space-between;
+}
+
+nav > div{
+    margin: 0 10rem;
+    color: aliceblue;
+}
+
+#nav_menu{
+    display: flex;
+    gap: 3rem;
+}
