@@ -1,6 +1,5 @@
 {% extends 'base.html' %} {% load static %} {%block content%}
 <!-- 게임 목록 -->
-{% for game in games %}
 
 <div id="game_history_list">
   <div id="history_list_container">
@@ -9,6 +8,7 @@
     </div>
     <p id="history_list_user">현재 플레이어 : {{request.user.username}}</p>
     <ul>
+      {% for game in games %}
       <li>
         <p id="history_list_content">{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
         {% if game.defender_card != null and game.attacker_card != null %}
@@ -23,12 +23,13 @@
           {% if game.attacker.username == request.user.username %}
           <p id="history_list_result">진행 중...<a class="history_list_prev" href="#">게임취소</a></p>
           {% else %}
-          <a class="history_list_detail" href="#">반격하기</a>
+          <a class="history_list_detail" href="{% url 'game:counter' game.pk %}">반격하기</a>
           {% endif %}
         {% endif %}
         <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
       </li>
+      {% endfor %}
     </ul>
   </div>
 </div>
-{% endfor %} {%endblock%}
+{%endblock%}

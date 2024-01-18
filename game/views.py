@@ -1,7 +1,7 @@
 import random
 from django.db.models import Q
-from django.shortcuts import render, redirect
-from .forms import GameForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import GameForm, CounterForm
 from .models import Game
 
 # Create your views here.
@@ -26,7 +26,7 @@ def game_list(request):
     games = Game.objects.filter(Q(attacker=user) | Q(defender=user))
 
     ctx = {'games':games}
-    return render(request, 'game/game_list.html', ctx)  
+    return render(request, 'game/game_list.html', ctx)
 
 def detail(request, pk):
     # post = Post.objects.get(id=pk)
@@ -37,3 +37,15 @@ def detail(request, pk):
 
     ctx ={'game':game, 'attacker': attacker, 'defender':defender}
     return render(request, 'game/game_detail.html', ctx)
+
+def counter(request, pk):
+    game = get_object_or_404(Game, id=pk)
+
+    if request.method == 'POST':
+        form = CounterForm(request.POST, instance=game)
+        if form.is_valid():
+            form.save()
+    else:
+        form = CounterForm(instance=game)
+
+    return render(request, 'game/game_counter.html', {'form': form, 'pk': pk})
