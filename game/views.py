@@ -28,13 +28,9 @@ def game_list(request):
     return render(request, 'game/game_list.html', ctx)
 
 def detail(request, pk):
-    # post = Post.objects.get(id=pk)
-    # user = post.user
     game = get_object_or_404(Game, pk=pk)
-    attacker = game.attacker
-    defender = game.defender
-
-    ctx ={'game':game, 'attacker': attacker, 'defender':defender}
+    userState, userScore = checkWinner(game, request.user)
+    ctx ={'game': game, 'result':userState, 'score': userScore}
     return render(request, 'game/game_detail.html', ctx)
 
 def detail_ing(request,pk):
@@ -51,23 +47,42 @@ def ranking(request):
         user_list = user_list[:3]
     return render(request, 'game/game_ranking.html', {'user_list': user_list})
 
-def checkWinner(game):
+def checkWinner(game, user):
+    userState, userScore = 2, 0
     if game.rule == True: #Bigger card win
         if game.attacker_card > game.defender_card:
             game.attacker.user_score += game.attacker_card
             game.defender.user_score -= game.defender_card
+            # 1: User win, 0: User defeat 
+            if (game.attacker == user):
+                userState, userScore = 1, game.attacker_card
+            else:
+                userState, userScore = 0, -game.defender_card
         elif game.attacker_card < game.defender_card:
             game.attacker.user_score -= game.attacker_card
             game.defender.user_score += game.defender_card
+            if (game.defender == user):
+                userState, userScore = 1, game.defender_card
+            else:
+                userState, userScore = 0, -game.attacker_card
     else: # Smaller card win
         if game.attacker_card > game.defender_card:
             game.attacker.user_score -= game.attacker_card
             game.defender.user_score += game.defender_card
+            if (game.defender == user):
+                userState, userScore = 1, game.defender_card
+            else:
+                userState, userScore = 0, -game.attacker_card
         elif game.attacker_card < game.defender_card:
             game.attacker.user_score += game.attacker_card
             game.defender.user_score -= game.defender_card
+            if (game.attacker == user):
+                userState, userScore = 1, game.attacker_card
+            else:
+                userState, userScore = 0, -game.defender_card
     game.attacker.save()
-    game.defender.save()  
+    game.defender.save()
+    return userState, userScore   
         
 def counter(request, pk):
     game = get_object_or_404(Game, id=pk)
@@ -75,8 +90,8 @@ def counter(request, pk):
         form = CounterForm(request.POST, instance=game)
         if form.is_valid():
             game = form.save()
-            checkWinner(game)
-            return render(request, 'game/game_detail.html', {'game': game})            
+            userState, userScore = checkWinner(game, request.user)
+            return render(request, 'game/game_detail.html', {'game': game, 'result':userState, 'score': userScore})            
     else:
         if game.defender_card != None:
             return redirect('game:game_list')
