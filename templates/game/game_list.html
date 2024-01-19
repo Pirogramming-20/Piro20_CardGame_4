@@ -7,7 +7,7 @@
       History List
     </div>
     <p id="history_list_user">현재 플레이어 : {{request.user.username}}</p>
-    <ul>
+    <ul id="history_list_sum">
       {% for game in games %}
       <li>
         <p id="history_list_content">{{forloop.counter}} - {{game.attacker}} VS {{game.defender}}</p>
