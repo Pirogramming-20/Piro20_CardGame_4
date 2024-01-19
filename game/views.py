@@ -1,13 +1,15 @@
 import random
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AttackForm, CounterForm
 from django.db.models import Q
 from .models import Game
 from common.models import User
-# Create your views here.
+
 def attack(request):
     if request.method == 'POST':
-        form = AttackForm(request.POST)
+        game = Game()
+        form = AttackForm(request.POST, instance=game)
         if form.is_valid():
             game = form.save(commit=False)
             if(game.defender != None and game.defender != request.user):
@@ -16,7 +18,8 @@ def attack(request):
                 game.save()
                 return redirect('/') # 추후 detail 이동으로 수정
     else:
-        form = AttackForm()
+        game = Game()
+        form = AttackForm(request=request, instance=game)
     return render(request, 'game/game_create.html', {'form': form})
 
 def game_list(request):
@@ -94,7 +97,7 @@ def counter(request, pk):
     else:
         if game.defender_card != None:
             return redirect('game:game_list')
-        form = CounterForm(instance=game)
+        form = CounterForm(request=request, instance=game)
     return render(request, 'game/game_counter.html', {'form': form, 'pk': pk})
 
 def game_delete(request, pk):
