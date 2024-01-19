@@ -11,16 +11,21 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
+import os, json, sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+ROOT_DIR = os.path.dirname(BASE_DIR)
+SECRET_BASE_FILE = os.path.join(BASE_DIR, 'secrets.json')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-nex+e_+3b^on)%vu&8h^28go)g_)bxbx$!#m3t!es&%3_rr7iy'
+secrets = json.loads(open(SECRET_BASE_FILE).read())
+for key, value in secrets.items():
+    setattr(sys.modules[__name__], key, value)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,8 +43,33 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'common.apps.CommonConfig',
-    'game.apps.GameConfig'
+    'game.apps.GameConfig',
+    # django-allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.kakao',
+    'allauth.socialaccount.providers.naver',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github'
 ]
+
+SITE_ID = 1
+
+AUTH_USER_MODEL = 'common.User'
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'APP': {
+            'client_id': 'ca360c9428e7aa2b6a6f',
+            'secret': '556d08d56a2ab378957ecbc17476c7e0902a915f',
+            'key': ''
+        }
+    }
+}
+
+LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -131,7 +162,3 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-AUTH_USER_MODEL = 'common.User'
-
-LOGIN_REDIRECT_URL = '/'
