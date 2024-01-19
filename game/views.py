@@ -56,33 +56,31 @@ def checkWinner(game):
         if game.attacker_card > game.defender_card:
             game.attacker.user_score += game.attacker_card
             game.defender.user_score -= game.defender_card
-            return 1 # Attacker win (0 = Defender win, 2 = Same)
         elif game.attacker_card < game.defender_card:
             game.attacker.user_score -= game.attacker_card
             game.defender.user_score += game.defender_card
-            return 0
     else: # Smaller card win
         if game.attacker_card > game.defender_card:
             game.attacker.user_score -= game.attacker_card
             game.defender.user_score += game.defender_card
-            return 0
         elif game.attacker_card < game.defender_card:
             game.attacker.user_score += game.attacker_card
             game.defender.user_score -= game.defender_card
-            return 1
-    return 2     
+    game.attacker.save()
+    game.defender.save()  
         
 def counter(request, pk):
     game = get_object_or_404(Game, id=pk)
     if request.method == 'POST':
         form = CounterForm(request.POST, instance=game)
         if form.is_valid():
-            form.save()
-            result = checkWinner(game)
+            game = form.save()
+            checkWinner(game)
             return render(request, 'game/game_detail.html', {'game': game})            
     else:
+        if game.defender_card != None:
+            return redirect('game:game_list')
         form = CounterForm(instance=game)
-
     return render(request, 'game/game_counter.html', {'form': form, 'pk': pk})
 
 def game_delete(request, pk):
