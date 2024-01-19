@@ -1,0 +1,87 @@
+.submit_container {
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit_modal {
+  padding: 100px;
+  border-radius: 20px;
+  background-color: var(--puple);
+  color: var(--orange);
+  box-shadow: 5px 5px 5px black;
+}
+
+.submit_modal > form > div {
+  margin-bottom: 20px;
+}
+
+.submit_modal li:nth-of-type(1){
+  margin-top: 10px;
+}
+
+.submit_modal li{
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.submit_center {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.submit_btn {
+  width: 100px;
+  height: 30px;
+  color: var(--puple);
+  background-color: var(--orange);
+  border-radius: 10px;
+}
+
+.submit_btn:hover {
+  background-color: var(--orange-light);
+}
+
+.attack-form p{
+  font-size: 25px;
+  margin: 10px 15px;
+}
+
+#id_attacker_card{
+  font-size: 25px;
+  color: black;
+  border: none;
+  border-bottom: 1px solid black;;
+  outline: none;
+  background-color: transparent;
+  margin-left: 10px;
+  padding-bottom: 5px;
+}
+
+#id_defender{
+  color: black;;
+  border: none;
+  border-bottom: 1px solid black;;
+  outline: none;
+  background-color: transparent;
+  margin-left: 10px;
+  padding-bottom: 5px;
+}
+
+.counter-form > p > label{
+  font-size: 25px;
+}
+
+#id_defender_card{
+  font-size: 25px;
+  color: black;
+  border: none;
+  border-bottom: 1px solid black;;
+  outline: none;
+  background-color: transparent;
+  margin-left: 10px;
+  padding-bottom: 5px;
+}

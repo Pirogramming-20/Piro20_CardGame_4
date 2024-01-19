@@ -2,6 +2,7 @@
   --puple: #65366c;
   --puple-light: #7b3685;
   --orange: #f69278;
+  --orange-light: #f05f3b;
 }
 
 section {
@@ -59,4 +60,34 @@ section {
   font-size: 30px;
   font-weight: bold;
   color: var(--orange);
+}
+
+.to_list {
+  width: 100px;
+  height: 30px;
+  color: var(--puple);
+  background-color: var(--orange);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.to_list:hover{
+  background-color: var(--orange-light);
+}
+
+#ranking-title {
+  text-align: center;
+  border-bottom: 2px solid var(--orange);
+}
+
+.delete_btn{
+  padding: 0 10px;
+  color: var(--puple);
+  background-color: var(--orange);
+  border-radius: 10px;
+}
+
+.delete_btn:hover{
+  background-color: var(--orange-light);
+  color: var(--puple-light);
 }

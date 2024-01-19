@@ -1,3 +1,5 @@
+
+
 :root {
     --puple: #65366c;
     --puple-light: #7b3685;
@@ -29,7 +31,18 @@
 #history_list_container li{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 60px;
+}
+
+#history_list_container li p{
+    width: 200px;
+    text-align: center;
+}
+
+#history_list_container li a{
+    width: 200px;
+    text-align: center;
 }
 
 #history_list_text{
@@ -43,6 +56,11 @@
     padding-bottom: 10px;
     border-bottom: 2px solid var(--puple);
     color: var(--puple);
+}
+
+#history_list_sum{
+    height: 55vh;
+    overflow: auto;
 }
 
 #history_list_content{

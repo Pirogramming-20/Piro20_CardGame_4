@@ -101,3 +101,7 @@ def game_delete(request, pk):
     if request.method == 'POST':
         Game.objects.get(id=pk).delete()
     return redirect('game:game_list')
+
+def detail_defend(request, pk):
+    game = get_object_or_404(Game, pk=pk)
+    return render(request, 'game/game_detail_defend.html', {'game': game})

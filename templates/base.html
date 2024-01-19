@@ -8,10 +8,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}?after" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}?after" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?after" />
+    <link rel="stylesheet" href="{% static 'css/submit.css' %}?after" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}?after" />
+
     <link rel="stylesheet" href="{% static 'css/game_list.css' %}?after" />
     <link rel="stylesheet" href="{% static 'css/game_detail.css' %}?after" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,5 +31,37 @@
     {% block content %} {% endblock %}
     <!-- 기본 템플릿 안에 삽입될 내용 End -->
     {% include 'footer.html'%}
+    <script>
+      const attacker_select_card = document.querySelector(".attack-form p:nth-of-type(1) label")
+      const attacker_select_enemy = document.querySelector(".attack-form p:nth-of-type(2) label")
+      const defender_select_card = document.querySelector(".counter-form p:nth-of-type(1) > label");
+      const options = document.querySelectorAll(".attack-form #id_defender option");
+      let usernameToDelete = "{{request.user.username}}";
+      let delete_option;
+
+      console.log(defender_select_card)
+
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].innerHTML == usernameToDelete) {
+          delete_option = options[i];
+          break; // 해당 옵션을 찾으면 반복문 종료
+        }
+      }
+
+      if (delete_option) {
+        // delete_option이 정의되었을 때 해당 옵션을 삭제하거나 다른 작업 수행
+        delete_option.remove(); // 예시로 옵션을 삭제하는 코드
+      } else {
+        console.error("Option not found!");
+      }
+
+      if(attacker_select_card != undefined){
+        attacker_select_card.innerHTML = '내가 고른 카드 : '
+      }
+      if(attacker_select_enemy != undefined){
+        attacker_select_enemy.innerHTML = '공격할 상대는? '
+      }
+      defender_select_card.innerHTML = '반격할 카드 : '
+    </script>
   </body>
 </html>

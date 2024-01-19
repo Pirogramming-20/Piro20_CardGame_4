@@ -5,11 +5,20 @@
       <div class="detail_vs_users">{{game.id}} - {{game.attacker}} VS {{game.defender}}</div>
       <p>진행중...</p>
       <div id="score_board">
-        <p>나: {{game.attacker}} : {{game.attacker_card}}</p>
+        <p>나: {{game.attacker_card}}</p>
       </div>
       <div class="delete_container">
-        <a class="history_list_prev" href="{% url 'game:game_list'%}">게임취소</a>
-      </div>
+        <form action="{% url 'game:game_delete' game.pk %}" method="post">
+          {% csrf_token %}
+          <button class="submit_btn">게임취소</button>
+          </form>
+        </div>
+        <div class='delete_container'>
+          <form action="{% url 'game:game_list'%}">
+            {% csrf_token %}
+            <button class="submit_btn">전적목록</button>
+            </form>
+        </div>
     </div>
   </div>
 </section>
