@@ -22,8 +22,7 @@ def attack(request):
 def game_list(request):
     user = request.user
     #Game 객체 전부 가져오기
-    games = Game.objects.filter(Q(attacker=user) | Q(defender=user))
-
+    games = Game.objects.filter(Q(attacker=user) | Q(defender=user)).order_by('-created_date')
     ctx = {'games':games}
     return render(request, 'game/game_list.html', ctx)
 
