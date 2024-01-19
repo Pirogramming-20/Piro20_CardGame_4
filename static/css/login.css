@@ -1,5 +1,9 @@
 .social-login-button {
     margin-bottom: 10px; 
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 .github-login {
