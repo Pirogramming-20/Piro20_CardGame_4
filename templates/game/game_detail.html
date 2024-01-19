@@ -23,7 +23,7 @@
                 {% endif %}
                 <p>점수 : {{score}}</p>
             <div class='delete_container'>
-                <form action="{% url 'game:game_list'%}" method="post">
+                <form action="{% url 'game:game_list'%}">
                   {% csrf_token %}
                   <button class="submit_btn">전적목록</button>
                   </form>
