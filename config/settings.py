@@ -66,6 +66,13 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': '556d08d56a2ab378957ecbc17476c7e0902a915f',
             'key': ''
         }
+    },
+    'google': {
+        'APP': {
+            'client_id': '283919683454-l75glq08mi2ice4bfofs8kaca0b80kd9.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''            
+        }
     }
 }
 
