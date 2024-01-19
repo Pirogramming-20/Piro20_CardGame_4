@@ -1,12 +1,15 @@
 :root {
   --puple: #65366c;
+  --puple-light: #7b3685;
   --orange: #f69278;
+  --orange-light: #ffb77d;
 }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Bagel Fat One", system-ui;
+  /* font-family: 'NotoSansKR', sans-serif; */
+  font-family: 'LilitaOne';
 }
 
 a {
