@@ -11,3 +11,4 @@ urlpatterns = [
 
 #localhost:8000/accounts/github/login
 #localhost:8000/accounts/google/login
+#localhost:8000/accounts/naver/login
