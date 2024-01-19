@@ -8,18 +8,23 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/game_list.css' %}?after">
-    <link rel="stylesheet" href="{% static 'css/game_detail.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/game_list.css' %}?after" />
+    <link rel="stylesheet" href="{% static 'css/game_detail.css' %}?after" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+      rel="stylesheet"
+    />
     <title>피로그래머 카드게임</title>
   </head>
   <body>
     {% include 'navbar.html'%}
     <!-- 기본 템플릿 안에 삽입될 내용 Start -->
-    {% block content %}
-    {% endblock %}
+    {% block content %} {% endblock %}
     <!-- 기본 템플릿 안에 삽입될 내용 End -->
     {% include 'footer.html'%}
   </body>
