@@ -5,7 +5,7 @@
       <div class="detail_vs_users">{{game.id}} - {{game.attacker}} VS {{game.defender}}</div>
       <p>진행중...</p>
       <div id="score_board">
-        <p>나: {{game.attacker}} : {{game.attacker_card}}</p>
+        <p>나: {{game.attacker_card}}</p>
       </div>
       <div class="delete_container">
         <form action="{% url 'game:game_delete' game.pk %}" method="post">
