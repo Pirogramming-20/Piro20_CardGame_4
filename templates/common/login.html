@@ -1,42 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="submit_container">
-    <div class="submit_modal">
-        <form method='post', action={% url 'common:login' %}>
-            {% csrf_token %}
-            <div>
-                <label for='username'>ID</label>
-                <input id='username' type='text' name='username' value='{{ form.username.value|default_if_none:''}}'>
-            </div>
-            <div>
-                <label for='password'>Password</label>
-                <input id='password' type='password' name='password' value='{{ form.password.value|default_if_none:''}}'>
-            </div>
-            <div class="submit_center">
-                <button type='submit' class="submit_btn">로그인</button>
-                <input type="hidden" name="next" value="{{ next }}" />
-            </div>
-            <!-- <p>소셜로그인</p> -->
-            <div class='social-login'>
-                <div class="social-login-button">
-                    <a href="/accounts/github/login">
-                        <button class="github-login">GitHub</button>
-                    </a>
-                </div>
-               
-                <div class="social-login-button">
-                    <a href="/accounts/google/login">
-                        <button class="google-login">Google</button>
-                    </a>
-            
-                <div class="social-login-button">
-                    <a href="/accounts/naver/login">
-                        <button class="naver-login">Naver</button>
-                    </a>
-                </div>
-            </div>
-        </form>
+<section>
+    <form method='post', action={% url 'common:login' %}>
+        {% csrf_token %}
+        <div>
+            <label for='username'>ID</label>
+            <input id='username' type='text' name='username' value='{{ form.username.value|default_if_none:''}}'>
+        </div>
+        <div>
+            <label for='password'>Password</label>
+            <input id='password' type='password' name='password' value='{{ form.password.value|default_if_none:''}}'>
+        </div>
+        <button type='submit'>로그인</button>
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+    <div class="social-login">
+        <div class="social-login-button">
+            <a href="/accounts/github/login">
+                <button class="github-login">GitHub 로그인</button>
+            </a>
+        </div>
+        
+        <div class="social-login-button">
+            <a href="/accounts/google/login">
+                <button class="google-login">Google 로그인</button>
+            </a>
+        </div>
+        
+        <div class="social-login-button">
+            <a href="/accounts/naver/login">
+                <button class="naver-login">Naver 로그인</button>
+            </a>
+        </div>
     </div>
+    
+
 </section>
 {% endblock %}
+
