@@ -99,3 +99,40 @@ section {
   background-color: var(--orange-light);
   color: var(--puple-light);
 }
+
+#ranking-123{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.ranking-text{
+  text-align: center;
+}
+
+#ranging-1,
+#ranging-2,
+#ranging-3{
+  width: 123px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+#ranging-1{
+  height: 177px;
+  background-color: #F9907A;
+}
+
+#ranging-2{
+  height: 116px;
+  background-color: #F9A978;
+}
+
+#ranging-3{
+  height: 70px;
+  background-color: #FFB77D;
+}
