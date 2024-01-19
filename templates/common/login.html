@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
-
+{% load socialaccount %}
 {% block content %}
-
 <section class="submit_container">
     <div class="submit_modal">
         <form method='post', action={% url 'common:login' %}>
@@ -18,33 +17,21 @@
                 <button type='submit' class="submit_btn">로그인</button>
                 <input type="hidden" name="next" value="{{ next }}" />
             </div>
-            <div id="social-login-buttons">
-                <div class="social-login-button">
-                    <a href="/accounts/github/login">
-                        <button class="github-login">GitHub</button>
-                    </a>
-                </div>
-                
-                <div class="social-login-button">
-                    <a href="/accounts/google/login">
-                        <button class="google-login">Google</button>
-                    </a>
-                </div>
-                
-                <div class="social-login-button">
-                    <a href="/accounts/naver/login">
-                        <button class="naver-login">Naver</button>
-                    </a>
-                </div>
-                <div class="social-login-button">
-                    <a href="/accounts/kakao/login">
-                        <button class="kakao-login">Kakao</button>
-                    </a>
-                </div>
+            <div class="social-login-button">
+                <a href="{% provider_login_url 'github' %}" class="github-login">GitHub</a>
+            </div>
+            
+            <div class="social-login-button">
+                <a href="{% provider_login_url 'google' %}" class="google-login">Google</a>
+            </div>
+            
+            <div class="social-login-button">
+                <a href=""{% provider_login_url 'naver' %}"" class="naver-login">Naver</a>
+            </div>
+            <div class="social-login-button">
+                <a href=""{% provider_login_url 'kakao' %}"" class="kakao-login">Kakao</a>
             </div>
         </form>
     </div>
 </section>
-
-
 {% endblock %}
