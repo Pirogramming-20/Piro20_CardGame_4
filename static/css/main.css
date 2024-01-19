@@ -1,8 +1,15 @@
+body {
+  font-family: 'Lilita One', cursive;
+}
+
+
+
 :root {
-  --puple: #65366c;
-  --puple-light: #7b3685;
-  --orange: #f69278;
-  --orange-light: #f05f3b;
+
+  --puple: #11321a;
+  --puple-light: #2a6d2b;
+  --orange: #5bcd5f;
+  --orange-light: #7ed281;
 }
 
 section {
@@ -30,6 +37,7 @@ section {
   color: var(--puple);
   font-size: 5rem;
   font-weight: bold;
+  font-family: 'LilitaOne', sans-serif;
 }
 
 .main_username {

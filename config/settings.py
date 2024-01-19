@@ -58,6 +58,8 @@ SITE_ID = 1
 
 AUTH_USER_MODEL = 'common.User'
 
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
 # Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {
     'github': {

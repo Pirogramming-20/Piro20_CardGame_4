@@ -1,6 +1,8 @@
 :root{
-    --puple: #65366C;
-    --orange: #F69278;
+    --puple: #65366c;
+    --puple-light: #7b3685;
+    --orange: #f69278;
+    --orange-light: #ffb77d;
 }
 
 footer{

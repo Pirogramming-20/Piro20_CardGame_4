@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <section class="submit_container">
   <div class="submit_modal">
-    <form action="{% url 'game:attack' %}" method="POST">
+    <form action="{% url 'game:attack' %}" method="POST" class="attack-form">
       {% csrf_token %} {{form.as_p}}
       <div class="submit_center">
         <button type="submit" class="submit_btn">Attack!</button>
