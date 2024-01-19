@@ -15,5 +15,26 @@
         <button type='submit'>로그인</button>
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
+
+ 
+    <div class="social-login-button">
+        <a href="/accounts/github/login">
+            <button class="github-login">GitHub 로그인</button>
+        </a>
+    </div>
+
+    <div class="social-login-button">
+        <a href="/accounts/google/login">
+            <button class="google-login">Google 로그인</button>
+        </a>
+    </div>
+
+    <div class="social-login-button">
+        <a href="/accounts/naver/login">
+            <button class="naver-login">Naver 로그인</button>
+        </a>
+    </div>
+
+
 </section>
 {% endblock %}

@@ -1,0 +1,21 @@
+.social-login-button {
+    margin-bottom: 10px; 
+}
+
+.github-login {
+    background-color: #24292e; 
+    color: white;
+   
+}
+
+.google-login {
+    background-color: #db4437; 
+    color: white;
+    
+}
+
+.naver-login {
+    background-color: #2db400; 
+    color: white;
+    
+}
