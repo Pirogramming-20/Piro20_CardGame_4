@@ -4,13 +4,13 @@
 <section>
     <div class="detail_container">
         <div class="detail_modal">
-            <p>{{game.id}} - {{game.attacker}} VS {{game.defender}}</p>
+            <div class="detail_vs_users">{{game.id}} - {{game.attacker}} VS {{game.defender}}</div>
             {% if game.rule == 0 %}
             <p>숫자가 작은 사람이 이깁니다.</p>
             {% else %}
             <p>숫자가 큰 사람이 이깁니다.</p>
             {% endif %}
-            <div>
+            <div id="cards_container">
                 <p>{{game.attacker}} : {{game.attacker_card}}</p>
                 <p>{{game.defender}} : {{game.defender_card}}</p>
             </div>
@@ -53,7 +53,9 @@
                 <p>결과 : 무승부</p>
                 {% endif %}
             {% endif %}
-
+            <div class="delete_container margin-top">
+                <a class="history_list_prev" href="{% url 'game:game_list'%}">게임취소</a>
+            </div>
         </div>
     </div>
 </section>

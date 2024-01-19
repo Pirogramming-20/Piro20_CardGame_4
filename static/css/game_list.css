@@ -1,6 +1,13 @@
+:root {
+    --puple: #65366c;
+    --puple-light: #7b3685;
+    --orange: #f69278;
+}
+
 #game_history_list{
     height: 82vh;
-    background-color: #1E201F;
+    background-image: url(../image/background.png);
+    background-size: cover;
     display: flex;
     justify-content: center;
 }
@@ -27,36 +34,55 @@
 
 #history_list_text{
     margin: 30px 0;
-    color: aliceblue;
+    color: var(--puple);
 }
 
 #history_list_user{
     width: 100%;
     font-size: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgb(54, 174, 54);
-    color: aliceblue;
+    border-bottom: 2px solid var(--puple);
+    color: var(--puple);
 }
 
 #history_list_content{
-    color: aliceblue;
+    color: var(--puple);
 }
 
 #history_list_result{
-    color: aliceblue;
+    color: var(--puple);
 }
 
 .history_list_prev{
-    color: rgb(54, 174, 54);
+    color: var(--orange);
+    background-color: var(--puple);
+    border: 3px solid var(--orange);
     padding: 10px 20px;
-    border: 1px solid  rgb(54, 174, 54);
     border-radius: 5px;
-    margin-left: 10px;
 }
 
 .history_list_detail{
-    color: rgb(54, 174, 54);
+    color: var(--orange);
+    background-color: var(--puple);
+    border: 3px solid var(--orange);
     padding: 10px 20px;
-    border: 1px solid  rgb(54, 174, 54);
     border-radius: 5px;
+}
+
+.history_list_detail:hover,
+.history_list_prev:hover{
+    background-color: var(--puple-light);
+}
+
+#score_board{
+    margin-bottom: 50px;
+}
+
+.delete_container{
+    display: flex;
+    justify-content: center;
+}
+
+.margin-top{
+    margin-top: 50px;
 }
