@@ -61,3 +61,17 @@ section {
   font-weight: bold;
   color: var(--orange);
 }
+
+.to_list {
+  width: 100px;
+  height: 30px;
+  color: var(--puple);
+  background-color: var(--orange);
+  border-radius: 10px;
+  text-align: center;
+}
+
+#ranking-title {
+  text-align: center;
+  border-bottom: 2px solid var(--orange);
+}
