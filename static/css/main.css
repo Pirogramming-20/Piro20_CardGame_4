@@ -71,6 +71,10 @@ section {
   text-align: center;
 }
 
+.to_list:hover{
+  background-color: var(--orange-light);
+}
+
 #ranking-title {
   text-align: center;
   border-bottom: 2px solid var(--orange);
