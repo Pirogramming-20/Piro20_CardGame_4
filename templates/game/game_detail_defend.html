@@ -6,7 +6,7 @@
     <div class="detail_modal">
       <div class="detail_vs_users">{{game.id}} - {{game.attacker}} VS {{game.defender}}</div>
       <div class="delete_container">
-        <form action="{% url 'game:counter' game.pk %}" method="post">
+        <form action="{% url 'game:counter' game.pk %}" method="get">
           {% csrf_token %}
           <button class="submit_btn">대응하기</button>
           </form>
