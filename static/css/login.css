@@ -1,3 +1,9 @@
+#social-login-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
 .social-login-button {
     margin-bottom: 10px; 
     display: inline-flex;
@@ -26,6 +32,6 @@
 
 .kakao-login {
     background-color: yellow; 
-    color: white;
+    color: black;
     
 }
