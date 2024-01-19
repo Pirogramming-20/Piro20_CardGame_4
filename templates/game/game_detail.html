@@ -14,46 +14,14 @@
                 <p>{{game.attacker}} : {{game.attacker_card}}</p>
                 <p>{{game.defender}} : {{game.defender_card}}</p>
             </div>
-            {% if game.rule == 0 %}
-                {% if game.attacker_card > game.defender_card %}
-                <p>결과 : 수비자 승리</p>
-                {% elif game.attacker_card < game.defender_card %}
-                <p>결과 : 공격자 승리</p>
-                {% elif game.attacker_card == game.defender_card %}
+                {% if result == 0 %}
+                <p>결과 : 패배</p>
+                {% elif result == 1 %}
+                <p>결과 : 승리</p>
+                {% elif result == 2 %}
                 <p>결과 : 무승부</p>
                 {% endif %}
-            {% else %}
-                {% if game.attacker_card > game.defender_card %}
-                <p>결과 : 공격자 승리</p>
-                {% elif game.attacker_card < game.defender_card %}
-                <p>결과 : 수비자 승리</p>
-                {% elif game.attacker_card == game.defender_card %}
-                <p>결과 : 무승부</p>
-                {% endif %}
-            {% endif %}
-            
-            {% if game.rule == 0 %}
-                {% if game.attacker_card > game.defender_card %}
-                <p>승리자 점수 : +{{game.defender_card}}</p>
-                <p>패배자 점수 : -{{game.attacker_card}}</p>
-                {% elif game.attacker_card < game.defender_card %}
-                <p>승리자 점수 : -{{game.attacker_card}}</p>
-                <p>패배자 점수 : +{{game.defender_card}}</p>
-                {% elif game.attacker_card == game.defender_card %}
-                <p>점수 : 무승부</p>
-                {% endif %}
-            {% else %}
-                {% if game.attacker_card > game.defender_card %}
-                <p>승리자 점수 : -{{game.attacker_card}}</p>
-                <p>패배자 점수 : +{{game.defender_card}}</p>
-                {% elif game.attacker_card < game.defender_card %}
-                <p>승리자 점수 : +{{game.defender_card}}</p>
-                <p>패배자 점수 : -{{game.attacker_card}}</p>
-                {% elif game.attacker_card == game.defender_card %}
-                <p>결과 : 무승부</p>
-                {% endif %}
-            {% endif %}
-
+                <p>점수 : {{score}}</p>
         </div>
     </div>
 </section>
