@@ -1,33 +1,43 @@
-*{
-    margin: 0;
-    padding: 0;
+:root {
+  --puple: #65366c;
+  --orange: #f69278;
 }
 
-a{
-    text-decoration: none;
-    text-decoration-line: none;
-    color: aliceblue;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Bagel Fat One", system-ui;
 }
 
-#logo a{
-    font-size: larger;
-    color: rgb(54, 174, 54);
+a {
+  text-decoration: none;
+  text-decoration-line: none;
+  color: aliceblue;
 }
 
-nav{
-    background-color: black;
-    display: flex;
-    align-items: center;
-    height: 8vh;
-    justify-content: space-between;
+#logo a {
+  font-size: larger;
+  color: var(--orange);
 }
 
-nav > div{
-    margin: 0 10rem;
-    color: aliceblue;
+nav {
+  background-color: var(--puple);
+  display: flex;
+  align-items: center;
+  height: 8vh;
+  justify-content: space-between;
 }
 
-#nav_menu{
-    display: flex;
-    gap: 3rem;
+nav > div {
+  margin: 0 10rem;
+  color: aliceblue;
+}
+
+#nav_menu {
+  display: flex;
+  gap: 3rem;
+}
+
+#nav_menu > a {
+  color: var(--orange);
 }

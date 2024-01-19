@@ -1,48 +1,62 @@
-section{
-    height: 82vh;
-    background-color: #1E201F;
+:root {
+  --puple: #65366c;
+  --puple-light: #7b3685;
+  --orange: #f69278;
 }
 
-.main_container{
-    display: flex;
-    flex-direction: column;
-    height: 82vh;
-    align-items: center;
-    justify-content: center;
+section {
+  height: 82vh;
+  background-image: url(../image/background.png);
+  background-size: cover;
 }
 
-.main_title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
+.main_container {
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+  align-items: center;
+  justify-content: center;
 }
 
-.main_title > p{
-    color: aliceblue;
-    font-size: 40px;
-    font-weight: bold;
+.main_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.main_username{
-    color: aliceblue;
-    margin-bottom: 10px;
+.main_title > p {
+  color: var(--puple);
+  font-size: 5rem;
+  font-weight: bold;
 }
 
-.btns{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.main_username {
+  color: var(--puple);
+  margin-bottom: 10px;
 }
 
-.btns > button{
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    color: rgb(54, 174, 54);
-    padding: 5px 20px;
-    background-color: transparent;
-    border: 3px solid rgb(54, 174, 54);
-    border-radius: 5px;
+.btns {
+  display: flex;
+  gap: 10px;
 }
 
+.btn_game,
+.btn_history {
+  cursor: pointer;
+  padding: 5px 20px;
+  background-color: var(--puple);
+  border-radius: 20px;
+}
+
+.btn_game:hover,
+.btn_history:hover {
+  background-color: var(--puple-light);
+}
+
+.btn_game > a,
+.btn_history > a {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--orange);
+}
