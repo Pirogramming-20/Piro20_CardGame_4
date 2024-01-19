@@ -6,13 +6,44 @@
 <section class="submit_container">
     <div class="submit_modal">
         <h3 id="ranking-title">Piro 명예의 전당</h3>
-        <ul>
-            {% for user in user_list %}
-            <li>
-                <span>{{forloop.counter}}등 {{user.username}}님: 총점수: {{user.user_score}}점</span>
-            </li>
-            {% endfor %}
-        </ul>
+        <div id="ranking-123">
+            {% with sorted_users=user_list|dictsortreversed:"user_score" %}
+    {% for user in sorted_users|slice:":3" %}
+        {% if forloop.counter == 2 %}
+            {% with user2=user %}
+            <div>
+                <div class="ranking-text">
+                    <p>{{user.username}}</p>
+                    <p>{{user.user_score}}</p>
+                </div>
+                <div id="ranging-2">2</div>
+            </div>
+            {% endwith %}
+        {% elif forloop.counter == 1 %}
+            {% with user1=user %}
+            <div>
+                <div class="ranking-text">
+                    <p>{{user.username}}</p>
+                    <p>{{user.user_score}}</p>
+                </div>
+                <div id="ranging-1">1</div>
+            </div>
+            {% endwith %}
+        {% elif forloop.counter == 3 %}
+            {% with user3=user %}
+            <div>
+                <div class="ranking-text">
+                    <p>{{user.username}}</p>
+                    <p>{{user.user_score}}</p>
+                </div>
+                <div id="ranging-3">3</div>
+            </div>
+            {% endwith %}
+        {% endif %}
+    {% endfor %}
+{% endwith %}
+
+        </div>
         <div class="submit_center"><a href={% url 'game:game_list'%} class="to_list">전적 목록</a></div>
     </div>
 </section>
