@@ -75,3 +75,15 @@ section {
   text-align: center;
   border-bottom: 2px solid var(--orange);
 }
+
+.delete_btn{
+  padding: 0 10px;
+  color: var(--puple);
+  background-color: var(--orange);
+  border-radius: 10px;
+}
+
+.delete_btn:hover{
+  background-color: var(--orange-light);
+  color: var(--puple-light);
+}
