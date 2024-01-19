@@ -1,7 +1,14 @@
+:root{
+    --puple: #65366C;
+    --orange: #F69278;
+}
+
 section{
     height: 82vh;
-    background-color: #1E201F;
+    background-image: url(../image/background.png);
+    background-size: cover;
 }
+
 
 .main_container{
     display: flex;
@@ -19,30 +26,30 @@ section{
 }
 
 .main_title > p{
-    color: aliceblue;
+    color: var(--puple);
     font-size: 40px;
     font-weight: bold;
 }
 
 .main_username{
-    color: aliceblue;
+    color: var(--puple);
     margin-bottom: 10px;
 }
 
 .btns{
     display: flex;
-    flex-direction: column;
     gap: 10px;
 }
 
-.btns > button{
-    font-size: 30px;
-    font-weight: bold;
+.btn_game, .btn_history{
     cursor: pointer;
-    color: rgb(54, 174, 54);
     padding: 5px 20px;
-    background-color: transparent;
-    border: 3px solid rgb(54, 174, 54);
-    border-radius: 5px;
+    background-color: var(--puple);
+    border-radius: 20px;
 }
 
+.btn_game>a, .btn_history>a{
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--orange);
+}

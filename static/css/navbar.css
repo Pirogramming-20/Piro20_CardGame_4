@@ -1,3 +1,8 @@
+:root{
+    --puple: #65366C;
+    --orange: #F69278;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -11,11 +16,11 @@ a{
 
 #logo a{
     font-size: larger;
-    color: rgb(54, 174, 54);
+    color: var(--orange);
 }
 
 nav{
-    background-color: black;
+    background-color: var(--puple);
     display: flex;
     align-items: center;
     height: 8vh;
@@ -30,4 +35,8 @@ nav > div{
 #nav_menu{
     display: flex;
     gap: 3rem;
+}
+
+#nav_menu > a{
+    color: var(--orange);
 }
