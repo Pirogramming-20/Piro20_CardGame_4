@@ -4,7 +4,7 @@
     <form action="{% url 'game:attack' %}" method="POST">
       {% csrf_token %} {{form.as_p}}
       <div class="submit_center">
-        <button type="submit" class="submit_btn">공격하기</button>
+        <button type="submit" class="submit_btn">Attack!</button>
       </div>
     </form>
   </div>
