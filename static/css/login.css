@@ -1,3 +1,10 @@
+.social-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
 .social-login-button {
     margin-bottom: 10px; 
 }
@@ -19,3 +26,4 @@
     color: white;
     
 }
+

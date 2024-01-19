@@ -2,15 +2,18 @@
 {% load static %}
 {%block content%}
     <!-- 게임 목록 -->
-<section>
-    <h3>Piro 명예의 전당</h3>
-    <ul>
-        {% for user in user_list %}
-        <li>
-            <span>{{forloop.counter}}등 {{user.username}}님: 총점수: {{user.user_score}}점</span>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href={% url 'game:game_list'%}>전적 목록</a>
+    <!-- 관련 css들은 submit, main에 저장해 두었음 -->
+<section class="submit_container">
+    <div class="submit_modal">
+        <h3 id="ranking-title">Piro 명예의 전당</h3>
+        <ul>
+            {% for user in user_list %}
+            <li>
+                <span>{{forloop.counter}}등 {{user.username}}님: 총점수: {{user.user_score}}점</span>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="submit_center"><a href={% url 'game:game_list'%} class="to_list">전적 목록</a></div>
+    </div>
 </section>
 {%endblock%}

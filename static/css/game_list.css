@@ -45,6 +45,11 @@
     color: var(--puple);
 }
 
+#history_list_sum{
+    height: 55vh;
+    overflow: auto;
+}
+
 #history_list_content{
     color: var(--puple);
 }

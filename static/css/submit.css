@@ -1,0 +1,43 @@
+.submit_container {
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit_modal {
+  padding: 100px;
+  border-radius: 20px;
+  background-color: var(--puple);
+  color: var(--orange);
+  box-shadow: 5px 5px 5px black;
+}
+
+.submit_modal > form > div {
+  margin-bottom: 20px;
+}
+
+.submit_center {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.submit_btn {
+  width: 100px;
+  height: 30px;
+  color: var(--puple);
+  background-color: var(--orange);
+  border-radius: 10px;
+}
+
+.submit_btn:hover {
+  background-color: var(--orange-light);
+}
+.social-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}

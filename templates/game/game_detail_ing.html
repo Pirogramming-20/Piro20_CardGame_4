@@ -8,8 +8,11 @@
         <p>나: {{game.attacker}} : {{game.attacker_card}}</p>
       </div>
       <div class="delete_container">
-        <a class="history_list_prev" href="{% url 'game:game_list'%}">게임취소</a>
-      </div>
+        <form action="{% url 'game:game_delete' game.pk %}" method="post">
+          {% csrf_token %}
+          <button class="submit_btn">게임취소</button>
+          </form>
+        </div>
     </div>
   </div>
 </section>

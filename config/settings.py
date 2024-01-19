@@ -80,6 +80,13 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': '1HoEDbzBIv',
             'key': ''            
         }
+    },
+    'kakao': {
+        'APP': {
+            'client_id': '570e96e7fe8592130089ea76bf412113',
+            'secret': '',
+            'key': ''            
+        }
     }
 }
 
