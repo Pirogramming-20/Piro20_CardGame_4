@@ -10,5 +10,6 @@ urlpatterns = [
     path('detail/<int:pk>/', detail, name='detail'),
     path('ranking/', ranking, name='ranking'),
     path('detail_ing/<int:pk>', detail_ing, name='detail_ing'),
+    path('detail_defend/<int:pk>', detail_defend, name='detail_defend'),
     path('delete/<int:pk>', game_delete, name='game_delete')
 ]
