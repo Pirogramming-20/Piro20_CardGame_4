@@ -73,6 +73,13 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': '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',
             'key': ''            
         }
+    },
+    'naver': {
+        'APP': {
+            'client_id': 'LHjpPo5ogl6lEuZO2iZ9',
+            'secret': '1HoEDbzBIv',
+            'key': ''            
+        }
     }
 }
 
