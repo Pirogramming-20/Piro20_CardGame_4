@@ -7,7 +7,7 @@
       History List
     </div>
     <p id="history_list_user">현재 플레이어 : {{request.user.username}}</p>
-    <ul>
+    <ul id="history_list_sum">
       {% for game in games %}
       <li>
         <p id="history_list_content">{{forloop.counter}} - {{game.attacker}} VS {{game.defender}}</p>
@@ -35,11 +35,11 @@
             {% if game.attacker.username == request.user.username %}
                 <form action="{% url 'game:game_delete' game.pk %}" method="post">
                 {% csrf_token %}
-                <p id="history_list_result">진행 중...<button>게임취소</button></p>
+                <p id="history_list_result">진행 중...<button class="delete_btn">게임취소</button></p>
                 </form>
                 <a class="history_list_detail" href="{% url 'game:detail_ing' game.pk %}"> 게임전적 </a>
             {% else %}
-                <a class="history_list_detail" href="{% url 'game:counter' game.pk %}">반격하기</a>
+                <a class="history_list_detail" href="{% url 'game:counter' game.pk %}">CounterAttack</a>
                 <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임전적 </a>
             {% endif %}
         {% endif%}
