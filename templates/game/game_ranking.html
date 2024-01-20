@@ -5,7 +5,7 @@
     <!-- 관련 css들은 submit, main에 저장해 두었음 -->
 <section class="submit_container">
     <div class="submit_modal">
-        <h3 id="ranking-title">Piro 명예의 전당</h3>
+        <h3 lang="ko" id="ranking-title">Piro 명예의 전당</h3>
         <div id="ranking-123">
             {% with sorted_users=user_list|dictsortreversed:"user_score" %}
     {% for user in sorted_users|slice:":3" %}
@@ -44,7 +44,7 @@
 {% endwith %}
 
         </div>
-        <div class="submit_center"><a href={% url 'game:game_list'%} class="to_list">전적 목록</a></div>
+        <div class="submit_center"><a href={% url 'game:game_list'%} class="to_list" lang="ko">전적 목록</a></div>
     </div>
 </section>
 {%endblock%}

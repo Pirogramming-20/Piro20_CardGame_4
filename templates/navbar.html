@@ -5,14 +5,14 @@
     </div>
     {% if user.is_authenticated %}
     <div id="nav_menu">
-        <a href='{% url "game:attack" %}'>게임하기</a>
-        <a href='{% url "game:ranking" %}'>랭킹보기</a>
-        <a href={% url "common:logout" %}>로그아웃</a>
+        <a href='{% url "game:attack" %}' lang="ko">게임하기</a>
+        <a href='{% url "game:ranking" %}' lang="ko">랭킹보기</a>
+        <a href={% url "common:logout" %} lang="ko">로그아웃</a>
     </div>
     {% else %}
     <div id="nav_menu">
-        <a href={% url "common:login" %}>로그인</a>
-        <a href={% url "common:signup" %}>회원가입</a>
+        <a href={% url "common:login" %} lang="ko">로그인</a>
+        <a href={% url "common:signup" %} lang="ko">회원가입</a>
     </div>
     {% endif %}
 </nav>

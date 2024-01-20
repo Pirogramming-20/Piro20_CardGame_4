@@ -6,22 +6,22 @@
         <div class="detail_modal">
             <div class="detail_vs_users">{{game.id}} - {{game.attacker}} VS {{game.defender}}</div>
             {% if game.rule == 0 %}
-            <p>숫자가 작은 사람이 이깁니다.</p>
+            <p lang="ko">숫자가 작은 사람이 이깁니다.</p>
             {% else %}
-            <p>숫자가 큰 사람이 이깁니다.</p>
+            <p lang="ko">숫자가 큰 사람이 이깁니다.</p>
             {% endif %}
             <div id="cards_container">
                 <p>{{game.attacker}} : {{game.attacker_card}}</p>
                 <p>{{game.defender}} : {{game.defender_card}}</p>
             </div>
                 {% if result == 0 %}
-                <p>결과 : 패배</p>
+                <p lang="ko">결과 : 패배</p>
                 {% elif result == 1 %}
-                <p>결과 : 👑👑승리👑👑</p>
+                <p lang="ko">결과 : 👑👑승리👑👑</p>
                 {% elif result == 2 %}
-                <p>결과 : 무승부</p>
+                <p lang="ko">결과 : 무승부</p>
                 {% endif %}
-                <p>점수 : {{score}}</p>
+                <p lang="ko">점수 : {{score}}</p>
             <div class='delete_container'>
                 <form action="{% url 'game:game_list'%}">
                   {% csrf_token %}
