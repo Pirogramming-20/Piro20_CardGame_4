@@ -14,18 +14,34 @@
         {% if game.defender_card != null and game.attacker_card != null %}
             {% if game.rule == 0 %}
                 {% if game.attacker_card > game.defender_card %}
-                <p>결과 : 수비자 승리</p>
+                  {% if game.attacker == request.user %}
+                  <p>결과: 패배</p>
+                  {% else %}
+                  <p>결과: 승리</p>
+                  {% endif %}
                 {% elif game.attacker_card < game.defender_card %}
-                <p>결과 : 공격자 승리</p>
+                  {% if game.attacker == request.user %}
+                  <p>결과: 승리</p>
+                  {% else %}
+                  <p>결과: 패배</p>
+                  {% endif %}
                 {% elif game.attacker_card == game.defender_card %}
                 <p>결과 : 무승부</p>
                 {% endif %}
                 <a class="history_list_detail" href="{% url 'game:detail' game.pk %}"> 게임정보 </a>
             {% else %}
                 {% if game.attacker_card > game.defender_card %}
-                <p>결과 : 공격자 승리</p>
+                  {% if game.attacker == request.user %}
+                  <p>결과: 승리</p>
+                  {% else %}
+                  <p>결과: 패배</p>
+                  {% endif %}
                 {% elif game.attacker_card < game.defender_card %}
-                <p>결과 : 수비자 승리</p>
+                  {% if game.attacker == request.user %}
+                  <p>결과: 패배</p>
+                  {% else %}
+                  <p>결과: 승리</p>
+                  {% endif %}
                 {% elif game.attacker_card == game.defender_card %}
                 <p>결과 : 무승부</p>
                 {% endif %}
