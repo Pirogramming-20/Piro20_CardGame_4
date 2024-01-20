@@ -1,0 +1,29 @@
+:root {
+    --puple: #65366c;
+    --puple-light: #7b3685;
+    --orange: #f69278;
+    --orange-light: #ffb77d;
+}
+  
+.detail_container{
+    display: flex;
+    height: 82vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail_modal{
+    padding: 100px;
+    border-radius: 20px;
+    background-color: var(--puple);
+    color: var(--orange);
+    box-shadow: 5px 5px 5px black;
+}
+
+.detail_modal > p, #cards_container{
+    border-top: 2px solid var(--orange);
+}
+
+.detail_vs_users{
+    font-size: 2rem;
+}

@@ -1,0 +1,138 @@
+body {
+  font-family: 'Lilita One', cursive;
+}
+
+
+
+:root {
+
+  --puple: #11321a;
+  --puple-light: #2a6d2b;
+  --orange: #5bcd5f;
+  --orange-light: #7ed281;
+}
+
+section {
+  height: 82vh;
+  background-image: url(../image/background.png);
+  background-size: cover;
+}
+
+.main_container {
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.main_title > p {
+  color: var(--puple);
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: 'LilitaOne', sans-serif;
+}
+
+.main_username {
+  color: var(--puple);
+  margin-bottom: 10px;
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+}
+
+.btn_game,
+.btn_history {
+  cursor: pointer;
+  padding: 5px 20px;
+  background-color: var(--puple);
+  border-radius: 20px;
+}
+
+.btn_game:hover,
+.btn_history:hover {
+  background-color: var(--puple-light);
+}
+
+.btn_game > a,
+.btn_history > a {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--orange);
+}
+
+.to_list {
+  width: 100px;
+  height: 30px;
+  color: var(--puple);
+  background-color: var(--orange);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.to_list:hover{
+  background-color: var(--orange-light);
+}
+
+#ranking-title {
+  text-align: center;
+  border-bottom: 2px solid var(--orange);
+}
+
+.delete_btn{
+  padding: 0 10px;
+  color: var(--puple);
+  background-color: var(--orange);
+  border-radius: 10px;
+}
+
+.delete_btn:hover{
+  background-color: var(--orange-light);
+  color: var(--puple-light);
+}
+
+#ranking-123{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.ranking-text{
+  text-align: center;
+}
+
+#ranging-1,
+#ranging-2,
+#ranging-3{
+  width: 123px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+#ranging-1{
+  height: 177px;
+  background-color: #F9907A;
+}
+
+#ranging-2{
+  height: 116px;
+  background-color: #F9A978;
+}
+
+#ranging-3{
+  height: 70px;
+  background-color: #FFB77D;
+}

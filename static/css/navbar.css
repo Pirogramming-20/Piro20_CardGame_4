@@ -1,0 +1,46 @@
+:root {
+  --puple: #65366c;
+  --puple-light: #7b3685;
+  --orange: #f69278;
+  --orange-light: #ffb77d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family: 'NotoSansKR', sans-serif; */
+  font-family: 'LilitaOne';
+}
+
+a {
+  text-decoration: none;
+  text-decoration-line: none;
+  color: aliceblue;
+}
+
+#logo a {
+  font-size: larger;
+  color: var(--orange);
+}
+
+nav {
+  background-color: var(--puple);
+  display: flex;
+  align-items: center;
+  height: 8vh;
+  justify-content: space-between;
+}
+
+nav > div {
+  margin: 0 10rem;
+  color: aliceblue;
+}
+
+#nav_menu {
+  display: flex;
+  gap: 3rem;
+}
+
+#nav_menu > a {
+  color: var(--orange);
+}

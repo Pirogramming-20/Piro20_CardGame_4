@@ -1,0 +1,107 @@
+
+
+:root {
+    --puple: #65366c;
+    --puple-light: #7b3685;
+    --orange: #f69278;
+    --orange-light: #ffb77d;
+}
+
+#game_history_list{
+    height: 82vh;
+    background-image: url(../image/background.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+#history_list_container{
+    width: 80%;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+#history_list_container ul{
+    width: 100%;
+    margin-top: 20px;
+    list-style: none;
+}
+
+#history_list_container li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+}
+
+#history_list_container li p{
+    width: 200px;
+    text-align: center;
+}
+
+#history_list_container li a{
+    width: 200px;
+    text-align: center;
+}
+
+#history_list_text{
+    margin: 30px 0;
+    color: var(--puple);
+}
+
+#history_list_user{
+    width: 100%;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--puple);
+    color: var(--puple);
+}
+
+#history_list_sum{
+    height: 55vh;
+    overflow: auto;
+}
+
+#history_list_content{
+    color: var(--puple);
+}
+
+#history_list_result{
+    color: var(--puple);
+}
+
+.history_list_prev{
+    color: var(--orange);
+    background-color: var(--puple);
+    border: 3px solid var(--orange);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.history_list_detail{
+    color: var(--orange);
+    background-color: var(--puple);
+    border: 3px solid var(--orange);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.history_list_detail:hover,
+.history_list_prev:hover{
+    background-color: var(--puple-light);
+}
+
+#score_board{
+    margin-bottom: 50px;
+}
+
+.delete_container{
+    display: flex;
+    justify-content: center;
+}
+
+.margin-top{
+    margin-top: 50px;
+}

@@ -1,0 +1,21 @@
+:root{
+    --puple: #65366c;
+    --puple-light: #7b3685;
+    --orange: #f69278;
+    --orange-light: #ffb77d;
+}
+
+footer{
+    height: 10vh;
+    background-color: var(--puple);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 50px;
+}
+
+footer > span{
+    padding-top: 10px;
+    color: var(--orange);
+    margin-bottom: 15px;
+}
